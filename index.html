@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Passwort-Generator & Hack-Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Digitale Sicherheit · Unterrichts-App</p>
+        <h1>Passwort-Generator & Hack-Demo</h1>
+        <p>
+          Erzeuge merkbare Passphrasen aus deutschen Wörtern und teste sofort,
+          warum kurze, vorhersehbare Passwörter gefährlich sind.
+        </p>
+      </div>
+      <div class="status-card">
+        <span id="listStatus">Wortlisten werden geladen …</span>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="panel">
+        <h2>1. Passwort bauen</h2>
+
+        <div class="form-row">
+          <label for="wordCount">Anzahl Wörter</label>
+          <select id="wordCount">
+            <option value="2">2 Wörter</option>
+            <option value="3" selected>3 Wörter</option>
+            <option value="4">4 Wörter</option>
+            <option value="5">5 Wörter</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>
+            <input type="checkbox" id="includeNumber" checked />
+            Zahl/Ziffern einbauen
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            <input type="checkbox" id="includeSpecial" checked />
+            Sonderzeichen einbauen
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            <input type="checkbox" id="capitalize" checked />
+            Wörter mit Grossbuchstaben beginnen
+          </label>
+        </div>
+
+        <button id="generateBtn">Passwort erzeugen</button>
+
+        <div class="password-box">
+          <div id="passwordOutput" class="password">Noch kein Passwort erzeugt</div>
+          <button id="copyBtn" class="secondary">Kopieren</button>
+        </div>
+
+        <div class="strength">
+          <div class="strength-label">
+            <span>Geschätzte Stärke</span>
+            <strong id="strengthText">–</strong>
+          </div>
+          <div class="bar">
+            <div id="strengthBar"></div>
+          </div>
+          <p id="strengthHint"></p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>2. Schlechte Passwörter testen</h2>
+        <p class="small">
+          Wähle ein schwaches Beispiel oder gib ein eigenes Demo-Passwort ein.
+          Die Simulation zeigt, wie ein Wörterbuch-/Bruteforce-Angriff vorgeht.
+        </p>
+
+        <div class="bad-passwords" id="badPasswordButtons"></div>
+
+        <div class="form-row">
+          <label for="testPassword">Demo-Passwort</label>
+          <input id="testPassword" type="text" value="haus123" autocomplete="off" />
+        </div>
+
+        <button id="attackBtn" class="danger">Hack-Demo starten</button>
+        <button id="stopBtn" class="secondary">Stoppen</button>
+
+        <div class="terminal" aria-live="polite">
+          <div class="terminal-top">
+            <span></span><span></span><span></span>
+          </div>
+          <pre id="attackLog">Bereit. Starte eine Demo.</pre>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel lesson">
+      <h2>Was soll man lernen?</h2>
+      <div class="lesson-grid">
+        <div>
+          <h3>Schlecht</h3>
+          <p>Kurze Wörter, Namen, Jahreszahlen, einfache Muster: <code>sommer2026!</code></p>
+        </div>
+        <div>
+          <h3>Besser</h3>
+          <p>Mehrere zufällige Wörter, gemischt mit Zahlen und Zeichen: <code>Grünes-Tanzen-Wald-47!</code></p>
+        </div>
+        <div>
+          <h3>Wichtig</h3>
+          <p>Für echte Konten: Passwortmanager, lange Passwörter, 2FA und kein Wiederverwenden.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

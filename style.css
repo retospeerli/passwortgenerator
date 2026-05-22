@@ -1,0 +1,279 @@
+:root {
+  --bg: #10121a;
+  --panel: #1b2030;
+  --panel2: #242b3f;
+  --text: #f4f7fb;
+  --muted: #aeb8cc;
+  --green: #42e98a;
+  --yellow: #ffd166;
+  --red: #ff5c7a;
+  --blue: #60a5fa;
+  --line: rgba(255,255,255,.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(96,165,250,.25), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(66,233,138,.15), transparent 30%),
+    var(--bg);
+}
+
+.app {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--green);
+  font-weight: 700;
+  font-size: .8rem;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: .95;
+  margin-bottom: 14px;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 760px;
+}
+
+.status-card {
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px 18px;
+  color: var(--yellow);
+  min-width: 240px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 70px rgba(0,0,0,.25);
+}
+
+.form-row {
+  margin: 16px 0;
+}
+
+label {
+  display: block;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+input[type="text"], select {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 13px 14px;
+  font-size: 1rem;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.25);
+  margin-right: 8px;
+}
+
+button {
+  border: 0;
+  border-radius: 14px;
+  padding: 13px 16px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--green);
+  color: #07110b;
+  transition: transform .12s ease, filter .12s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+button.secondary {
+  background: #30384f;
+  color: var(--text);
+}
+
+button.danger {
+  background: var(--red);
+  color: white;
+}
+
+.password-box {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.password {
+  background: #080b11;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  min-height: 62px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 1.25rem;
+  word-break: break-all;
+}
+
+.strength {
+  margin-top: 18px;
+}
+
+.strength-label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.bar {
+  height: 14px;
+  background: #0b0e15;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+#strengthBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--red), var(--yellow), var(--green));
+  transition: width .3s ease;
+}
+
+#strengthHint, .small {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.bad-passwords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 18px;
+}
+
+.bad-passwords button {
+  padding: 9px 11px;
+  font-size: .9rem;
+  background: #30384f;
+  color: var(--text);
+}
+
+.terminal {
+  margin-top: 18px;
+  background: #030507;
+  border: 1px solid rgba(66,233,138,.25);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.terminal-top {
+  height: 34px;
+  background: #111722;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+}
+
+.terminal-top span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+.terminal-top span:nth-child(2) {
+  background: var(--yellow);
+}
+
+.terminal-top span:nth-child(3) {
+  background: var(--green);
+}
+
+pre {
+  margin: 0;
+  padding: 16px;
+  height: 280px;
+  overflow: hidden;
+  color: var(--green);
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: .92rem;
+  line-height: 1.35;
+  white-space: pre-wrap;
+}
+
+.lesson {
+  margin-top: 24px;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.lesson-grid div {
+  background: rgba(0,0,0,.18);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+code {
+  color: var(--yellow);
+}
+
+@media (max-width: 860px) {
+  .hero, .grid, .lesson-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .password-box {
+    grid-template-columns: 1fr;
+  }
+}
